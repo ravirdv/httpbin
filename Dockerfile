@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM nginx/unit:1.18.0-python3.7
 
 LABEL name="httpbin"
 LABEL version="0.9.2"
@@ -19,4 +19,4 @@ RUN pip3 install --no-cache-dir /httpbin
 
 EXPOSE 80
 
-CMD ["gunicorn", "-b", "0.0.0.0:80", "httpbin:app", "-k", "gevent"]
+COPY config/config.json /docker-entrypoint.d/

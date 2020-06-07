@@ -90,6 +90,9 @@ app.add_template_global("HTTPBIN_TRACKING" in os.environ, name="tracking_enabled
 
 app.config["SWAGGER"] = {"title": "httpbin.org", "uiversion": 3}
 
+# NGINX Unit looks for application object
+application = app
+
 template = {
     "swagger": "2.0",
     "info": {
